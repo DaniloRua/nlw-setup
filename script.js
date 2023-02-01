@@ -2,7 +2,7 @@ const form = document.querySelector("#form-habits");
 const nlwSetup = new NLWSetup(form);
 const button = document.querySelector('.register-button');
 const today = new Date().toLocaleDateString('pt-br').slice(0, -5);
-const theDay = document.querySelector('.days')
+const theDay = document.querySelector('.days');
 
 function addId(x) {
     x.setAttribute('id', today)
@@ -34,7 +34,7 @@ function add() {
         addId(theDay.lastElementChild)
         unlockLastDiv()
 }
-//blocked previous days, but stil unblocked after refresh
+
 
 function save() {
 
@@ -45,4 +45,12 @@ const data = JSON.parse(localStorage.getItem('NLWSetup@habits')) || {};
 
 nlwSetup.setData(data);
 nlwSetup.load(JSON.parse(localStorage.getItem('NLWSetup@habits')));
+
+
+
+const modal = document.querySelector('.modal');
+const chart = document.querySelector('.chart')
+
+chart.addEventListener('click', ()=>modal.classList.toggle('modal-on') )
+
 
